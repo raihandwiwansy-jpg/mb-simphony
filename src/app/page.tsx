@@ -1,3 +1,5 @@
+const registrationLink = 'https://forms.gle/your-registration-link';
+
 const drumline = [
   {
     name: 'Snare',
@@ -40,6 +42,8 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero__backdrop hero__backdrop--one" />
         <div className="hero__backdrop hero__backdrop--two" />
+        <div className="hero__ring hero__ring--one" />
+        <div className="hero__ring hero__ring--two" />
 
         <header className="topbar">
           <div>
@@ -49,24 +53,24 @@ export default function HomePage() {
           <nav className="nav-links">
             <a href="#profil">Profil</a>
             <a href="#section">Section</a>
-            <a href="/daftar" className="nav-links__cta">
-              Pendaftaran
+            <a href={registrationLink} className="nav-links__cta" target="_blank" rel="noreferrer">
+              Link Pendaftaran
             </a>
           </nav>
         </header>
 
         <div className="hero__content">
-          <div className="hero__copy">
+          <div className="hero__copy hero__copy--intro">
             <p className="eyebrow">Kuning · Biru · Hitam</p>
             <h2>Identitas marching band yang modern, kuat, dan siap tampil mencolok.</h2>
             <p className="hero__text">
               Website ini menampilkan profil band, section utama drumline, brass, color guard,
-              pit, serta jalur pendaftaran yang mudah diakses.
+              pit, serta link pendaftaran yang terhubung ke website khusus.
             </p>
 
             <div className="hero__actions">
-              <a href="/daftar" className="button button--primary">
-                Daftar Sekarang
+              <a href={registrationLink} className="button button--primary" target="_blank" rel="noreferrer">
+                Buka Link Pendaftaran
               </a>
               <a href="#section" className="button button--ghost">
                 Lihat Section
@@ -74,7 +78,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <aside className="hero__panel" aria-label="Ringkasan program">
+          <aside className="hero__panel hero__panel--featured" aria-label="Ringkasan program">
             <div className="hero__badge">Open Recruitment</div>
             <p>Latihan terstruktur untuk musik, visual, dan formasi show.</p>
             <ul>
@@ -155,7 +159,7 @@ export default function HomePage() {
         </div>
 
         <div className="special-grid">
-          <article className="special-card">
+          <article className="special-card special-card--lift">
             <p className="eyebrow">Color Guard</p>
             <h4>Gerakan yang memperkuat cerita show.</h4>
             <p>
@@ -163,7 +167,7 @@ export default function HomePage() {
               yang kuat.
             </p>
           </article>
-          <article className="special-card">
+          <article className="special-card special-card--lift special-card--delay">
             <p className="eyebrow">Pit</p>
             <h4>Lapisan warna musik yang detail.</h4>
             <p>
@@ -174,16 +178,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-block registration-strip" id="pendaftaran">
+      <section className="section-block registration-strip registration-strip--link">
         <div>
           <p className="eyebrow">Pendaftaran</p>
-          <h3>Siap bergabung?</h3>
-          <p>
-            Klik halaman pendaftaran untuk mengisi data dan melihat alur masuk anggota baru.
-          </p>
+          <h3>Link pendaftaran ada di halaman khusus.</h3>
+          <p>Gunakan tombol di bawah untuk membuka website pendaftaran yang terpisah.</p>
         </div>
-        <a href="/daftar" className="button button--primary">
-          Buka Pendaftaran
+        <a href={registrationLink} className="button button--primary" target="_blank" rel="noreferrer">
+          Buka Link Resmi
         </a>
       </section>
     </main>

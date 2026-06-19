@@ -72,6 +72,18 @@ textarea {
   padding: 24px;
 }
 
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, transparent 15%, rgba(255, 255, 255, 0.06) 30%, transparent 45%),
+    radial-gradient(circle at 50% 0%, rgba(243, 198, 35, 0.12), transparent 32%);
+  transform: translateX(-18%);
+  animation: sweep 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
 .hero__backdrop {
   position: absolute;
   inset: auto;
@@ -94,6 +106,30 @@ textarea {
   bottom: -150px;
   left: -120px;
   background: radial-gradient(circle, rgba(43, 108, 246, 0.38), transparent 70%);
+}
+
+.hero__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  animation: float 10s ease-in-out infinite;
+}
+
+.hero__ring--one {
+  width: 220px;
+  height: 220px;
+  top: 16%;
+  right: 18%;
+  animation-delay: -2s;
+}
+
+.hero__ring--two {
+  width: 140px;
+  height: 140px;
+  top: 58%;
+  right: 6%;
+  animation-delay: -5s;
 }
 
 .topbar {
@@ -157,6 +193,7 @@ h1 {
   border-color: rgba(243, 198, 35, 0.38) !important;
   color: var(--text) !important;
   background: rgba(243, 198, 35, 0.12);
+  box-shadow: 0 0 0 1px rgba(243, 198, 35, 0.08) inset;
 }
 
 .hero__content {
@@ -167,6 +204,10 @@ h1 {
   gap: 24px;
   align-items: stretch;
   padding-top: 56px;
+}
+
+.hero__copy--intro {
+  animation: rise-in 700ms ease both;
 }
 
 .hero__copy {
@@ -237,6 +278,10 @@ h1 {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.hero__panel--featured {
+  animation: rise-in 820ms ease 120ms both;
+}
+
 .hero__badge {
   display: inline-flex;
   padding: 8px 12px;
@@ -265,11 +310,16 @@ h1 {
   padding-left: 18px;
 }
 
+.hero__panel li {
+  margin-bottom: 10px;
+}
+
 .section-block {
   margin-top: 20px;
   padding: 28px;
   border-radius: 28px;
   background: var(--panel);
+  animation: rise-in 700ms ease both;
 }
 
 .section-heading {
@@ -304,12 +354,23 @@ h1 {
 .form-card {
   border-radius: 24px;
   background: linear-gradient(180deg, rgba(20, 30, 56, 0.82), rgba(12, 18, 34, 0.92));
+  transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease,
+    background 240ms ease;
 }
 
 .glass-card,
 .special-card,
 .form-card {
   padding: 22px;
+}
+
+.glass-card:hover,
+.section-card:hover,
+.special-card:hover,
+.form-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(243, 198, 35, 0.2);
+  box-shadow: 0 34px 80px rgba(0, 0, 0, 0.5);
 }
 
 .glass-card--accent {
@@ -346,6 +407,24 @@ h1 {
 .section-card {
   padding: 20px;
   min-height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-card::before,
+.special-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 35%);
+  opacity: 0;
+  transition: opacity 240ms ease;
+  pointer-events: none;
+}
+
+.section-card:hover::before,
+.special-card:hover::before {
+  opacity: 1;
 }
 
 .section-card span {
@@ -371,6 +450,16 @@ h1 {
 
 .special-card {
   min-height: 190px;
+  position: relative;
+  overflow: hidden;
+}
+
+.special-card--lift {
+  animation: rise-in 760ms ease 80ms both;
+}
+
+.special-card--delay {
+  animation-delay: 180ms;
 }
 
 .registration-strip {
@@ -378,6 +467,24 @@ h1 {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+}
+
+.registration-strip--link {
+  background: linear-gradient(135deg, rgba(17, 28, 53, 0.96), rgba(9, 14, 28, 0.9));
+  position: relative;
+  overflow: hidden;
+}
+
+.registration-strip--link::after {
+  content: '';
+  position: absolute;
+  inset: auto -10% -60% auto;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(243, 198, 35, 0.18), transparent 65%);
+  animation: float 9s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .registration-page {
@@ -492,5 +599,57 @@ h1 {
   .nav-links a,
   .button {
     width: 100%;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  50% {
+    transform: translateY(-10px) translateX(6px);
+  }
+}
+
+@keyframes sweep {
+  0%,
+  100% {
+    transform: translateX(-18%);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: translateX(10%);
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
