@@ -1,4 +1,4 @@
-const registrationLink = 'https://forms.gle/your-registration-link';
+const registrationLink = 'https://simphonyaw.pythonanywhere.com/';
 
 const drumline = [
   {
@@ -90,27 +90,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-block" id="profil">
+      <section className="section-block reveal-section" id="profil">
         <div className="section-heading">
           <p className="eyebrow">Profil</p>
           <h3>Tentang MB Simphony</h3>
         </div>
         <div className="profile-grid">
-          <article className="glass-card">
+          <article className="glass-card reveal-card">
             <h4>Visi</h4>
             <p>
               Membangun marching band dengan karakter visual yang tegas, musikalitas kuat, dan
               disiplin latihan yang konsisten.
             </p>
           </article>
-          <article className="glass-card">
+          <article className="glass-card reveal-card reveal-card--delay-1">
             <h4>Misi</h4>
             <p>
               Mengembangkan setiap personel dari dasar teknik, kekompakan, sampai performa panggung
               yang berkelas.
             </p>
           </article>
-          <article className="glass-card glass-card--accent">
+          <article className="glass-card glass-card--accent reveal-card reveal-card--delay-2">
             <h4>Identitas</h4>
             <p>
               Enerjik, modern, dan berani. Perpaduan kuning, biru, dan hitam membentuk citra yang
@@ -120,7 +120,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-block" id="section">
+      <section className="section-block reveal-section" id="section">
         <div className="section-heading">
           <p className="eyebrow">Section</p>
           <h3>Komposisi tim inti</h3>
@@ -133,7 +133,7 @@ export default function HomePage() {
           </div>
           <div className="cards-grid">
             {drumline.map((item) => (
-              <article className="section-card" key={item.name}>
+              <article className="section-card reveal-card" key={item.name}>
                 <span>Drumline</span>
                 <h5>{item.name}</h5>
                 <p>{item.description}</p>
@@ -149,7 +149,7 @@ export default function HomePage() {
           </div>
           <div className="cards-grid">
             {brass.map((item) => (
-              <article className="section-card" key={item.name}>
+              <article className="section-card reveal-card" key={item.name}>
                 <span>Brass</span>
                 <h5>{item.name}</h5>
                 <p>{item.description}</p>
@@ -159,7 +159,7 @@ export default function HomePage() {
         </div>
 
         <div className="special-grid">
-          <article className="special-card special-card--lift">
+          <article className="special-card special-card--lift reveal-card">
             <p className="eyebrow">Color Guard</p>
             <h4>Gerakan yang memperkuat cerita show.</h4>
             <p>
@@ -167,7 +167,7 @@ export default function HomePage() {
               yang kuat.
             </p>
           </article>
-          <article className="special-card special-card--lift special-card--delay">
+          <article className="special-card special-card--lift special-card--delay reveal-card reveal-card--delay-1">
             <p className="eyebrow">Pit</p>
             <h4>Lapisan warna musik yang detail.</h4>
             <p>
@@ -178,7 +178,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-block registration-strip registration-strip--link">
+      <section className="section-block registration-strip registration-strip--link reveal-section">
         <div>
           <p className="eyebrow">Pendaftaran</p>
           <h3>Link pendaftaran ada di halaman khusus.</h3>
