@@ -1,3 +1,5 @@
+import SiteHeader from '@/components/SiteHeader';
+
 const steps = [
   'Isi data diri dan pilih section yang diminati.',
   'Tunggu konfirmasi panitia dan jadwal briefing.',
@@ -8,18 +10,11 @@ export default function DaftarPage() {
   return (
     <main className="page-shell registration-page">
       <section className="registration-hero">
-        <div className="topbar topbar--compact">
-          <div>
-            <p className="eyebrow">Pendaftaran</p>
-            <h1>Gabung MB Simphony</h1>
-          </div>
-          <a href="/" className="button button--ghost">
-            Kembali ke Beranda
-          </a>
-        </div>
+        <SiteHeader />
 
         <div className="registration-layout">
           <article className="glass-card glass-card--tall">
+            <p className="eyebrow">Pendaftaran</p>
             <h2>Alur masuk anggota baru</h2>
             <ol className="step-list">
               {steps.map((step) => (
